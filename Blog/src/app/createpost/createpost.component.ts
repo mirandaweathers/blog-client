@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./createpost.component.css']
 })
 export class CreatepostComponent {
-
+  newPost = {
+    title: '',
+    content: '',
+    headerImage: ''
+  }
 }
