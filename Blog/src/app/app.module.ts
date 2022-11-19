@@ -13,6 +13,7 @@ import { ViewpostsComponent } from './viewposts/viewposts.component';
 import { AddcommentComponent } from './addcomment/addcomment.component';
 import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
 import { EditaccountComponent } from './editaccount/editaccount.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditaccountComponent } from './editaccount/editaccount.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
