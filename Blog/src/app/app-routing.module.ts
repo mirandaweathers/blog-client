@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddcommentComponent } from './addcomment/addcomment.component';
+import { CreatepostComponent } from './createpost/createpost.component';
 import { EditaccountComponent } from './editaccount/editaccount.component';
+import { EditpostComponent } from './editpost/editpost.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
+import { NewuserComponent } from './newuser/newuser.component';
 import { ViewpostsComponent } from './viewposts/viewposts.component';
 
 const routes: Routes = [
@@ -17,6 +21,22 @@ const routes: Routes = [
   {
     path: 'account',
     component: EditaccountComponent
+  },
+  {
+    path: 'new-post',
+    component: CreatepostComponent
+  },
+  {
+    path: 'edit-post',
+    component: EditpostComponent
+  },
+  {
+    path: 'create-account',
+    component: NewuserComponent
+  },
+  {
+    path: 'add-comment',
+    component: AddcommentComponent
   }
 ];
 
