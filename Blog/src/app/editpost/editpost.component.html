@@ -1,4 +1,39 @@
 <div class="container">
-    <p>editpost works!</p>
+    <h1>Edit Post</h1>
 
+    <div class="form-group row">
+        <label for="post-title" class="col-sm-2 col-form-label-lg">Title: </label>
+        <div class="col-sm-10">
+            <input id="post-title" type="text" class="form-control" [(ngModel)]="editPost.title"/>
+        </div>
+    </div>  
+    
+    <div class="form-group row">
+        <label for="post-title" class="col-sm-2 col-form-label-lg">Image URL: </label>
+        <div class="col-sm-10">
+            <input id="post-title" type="text" class="form-control" [(ngModel)]="editPost.headerImage"/>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="post-content" class="col-sm-2 col-form-label-lg">Body: </label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="10" [(ngModel)]="editPost.content"></textarea>
+        </div>
+    </div>
+    <br><br>
+
+    <h3>Preview:</h3>
+    
+    <h1>{{editPost.title}}</h1><br>
+    <img src="{{editPost.headerImage}}"><br><br>
+    {{editPost.content}}<br><br>
+    
+    <!--
+        sample content from random facebook post:
+        title - overwhelmed hoarder with cats
+        image url - https://scontent-mia3-1.xx.fbcdn.net/v/t39.30808-6/315656647_10226448588418346_7354698050852210663_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=YGrEOMIa3hQAX9_qVoj&tn=Pz2xWcn70yM1uYDq&_nc_ht=scontent-mia3-1.xx&oh=00_AfDdBmVDzz6W3GbuQHZbBFpANErsyYhNyrDny4GMqGRqkw&oe=637D9DFF
+        content - So I found this very therapeutic and I thought some people might as well. I have an app called Picsart. I’m sure there are other similar ones. If you don’t want to pay you can do a free trial. They now have AI Photos. You basically put in a bunch of words that mean something to you, anything you want, and it will create an image. I put in a whole bunch about my mother, cat hoarding, clutter, feeling disorganized, anxiety, trauma etc. And this is one of the images the app gave me. You could also certainly do it with positive things such as a dream you had or associations with other aspects of life, positive or negative. But I feel like it kind of created a picture of that describes my feelings about my childhood.
+    -->
+    
 </div>
