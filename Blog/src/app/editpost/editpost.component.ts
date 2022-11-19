@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./editpost.component.css']
 })
 export class EditpostComponent {
-
+  editPost = {
+    title: '',
+    content: '',
+    headerImage: ''
+  }
 }
