@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./newuser.component.css']
 })
 export class NewuserComponent {
-
+  newUser = {
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    password: ''
+  }
 }
