@@ -6,10 +6,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="">Home</a>
-          <a class="nav-link" href="/new-post">Create Post</a>
-          <a class="nav-link" href="/login">Login</a>
-          <a class="nav-link" href="/account">Account</a>
+          <a class="nav-link" [routerLink]="['/']">Home</a>
+          <a class="nav-link" [routerLink]="['/new-post']">Create Post</a>
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
+          <a class="nav-link" [routerLink]="['/account']">My Account</a>
+          <a class="nav-link" [routerLink]="['/new-user']">Create Account</a>
         </div>
       </div>
     </div>
