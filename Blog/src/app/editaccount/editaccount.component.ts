@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./editaccount.component.css']
 })
 export class EditaccountComponent {
+  currentUser = {
+    userId: 'sampleId',
+    firstName: 'Miranda',
+    lastName: 'Weathers',
+    emailAddress: 'asdfjkl@abc.com',
+    password: 'secret'
+  }
 
+  updateUser = {
+    userId: '',
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    password: ''
+  }
 }

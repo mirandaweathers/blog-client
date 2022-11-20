@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./addcomment.component.css']
 })
 export class AddcommentComponent {
-
+  comment = {
+    commentId: 0,
+    comment: '',
+    userId: '',
+    postId: '',
+    commentDate: new Date()
+  }
 }

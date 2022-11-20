@@ -1,4 +1,26 @@
 <div class="container">
-    <p>addcomment works!</p>
+    
+    <h1>Leave a Comment</h1>
+
+    <div class="form-group row">
+        <label for="comment" class="col-sm-2 col-form-label-lg">
+            Comment: 
+        </label>
+        <div class="col-sm-10">
+            <textarea 
+                id="comment" 
+                name="comment" 
+                class="form-control" 
+                rows="3" 
+                [(ngModel)]="comment.comment" 
+                required></textarea>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit" value="Submit" style="margin-top: 30px; margin-bottom: 80px;">
+                Add Comment
+            </button>
+        </div>
+    </div>
 
 </div>

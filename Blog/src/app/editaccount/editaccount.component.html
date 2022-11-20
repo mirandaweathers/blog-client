@@ -3,24 +3,80 @@
         <h1>Edit Account Details</h1>
 
         <div class="form-group">
-            <label for="firstName" class="col-form-label-lg">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Smith">
+            <label for="firstName" class="col-form-label-lg">
+                First Name
+            </label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="firstName" 
+                name="firstName" 
+                [(ngModel)]="currentUser.firstName"
+            />
         </div>
 
         <div class="form-group">
-            <label for="lastName" class="col-form-label-lg">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Wigglesworth">
+            <label for="lastName" class="col-form-label-lg">
+                Last Name
+            </label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="lastName" 
+                name="lastName" 
+                [(ngModel)]="currentUser.lastName"
+            />
         </div>
 
         <div class="form-group">
-            <label for="emailAddress" class="col-form-label-lg">Email Address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="w.smith@example.com">
+            <label for="emailAddress" class="col-form-label-lg">
+                Email Address
+            </label>
+            <input 
+                type="email" 
+                class="form-control" 
+                id="emailAddress" 
+                name="email" 
+                [(ngModel)]="currentUser.emailAddress"
+            />
         </div>
 
         <div class="form-group">
-            <label for="password" class="col-form-label-lg">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="••••••••">
+            <label for="userId" class="col-form-label-lg">
+                Username
+            </label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="userId" 
+                name="userId" 
+                [(ngModel)]="currentUser.userId" 
+                disabled
+            />
         </div>
+
+        <div class="form-group">
+            <label for="password" class="col-form-label-lg">
+                Password
+            </label>
+            <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="currentUser.password"
+                
+            />
+        </div>
+
+        <div class="text-center" style="margin-top: 30px; margin-bottom: 80px;">
+            <button class="btn btn-primary" type="submit" value="Submit" style="margin-right: 10px;">
+                Update Account
+            </button>
+            <button class="btn btn-secondary" type="reset" value="Reset">Cancel</button>
+        </div>
+
+        
 
     </div>
 </div>
