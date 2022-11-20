@@ -14,6 +14,7 @@ import { AddcommentComponent } from './addcomment/addcomment.component';
 import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
 import { EditaccountComponent } from './editaccount/editaccount.component';
 import { FormsModule } from '@angular/forms';
+import { BlogcardComponent } from './blogcard/blogcard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     ViewpostsComponent,
     AddcommentComponent,
     ViewcommentsComponent,
-    EditaccountComponent
+    EditaccountComponent,
+    BlogcardComponent
   ],
   imports: [
     BrowserModule,

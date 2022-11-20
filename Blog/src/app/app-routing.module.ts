@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddcommentComponent } from './addcomment/addcomment.component';
+import { BlogcardComponent } from './blogcard/blogcard.component';
 import { CreatepostComponent } from './createpost/createpost.component';
 import { EditaccountComponent } from './editaccount/editaccount.component';
 import { EditpostComponent } from './editpost/editpost.component';
