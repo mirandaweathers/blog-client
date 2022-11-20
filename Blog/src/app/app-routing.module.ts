@@ -31,7 +31,7 @@ const routes: Routes = [
     component: EditpostComponent
   },
   {
-    path: 'create-account',
+    path: 'new-user',
     component: NewuserComponent
   },
   {
