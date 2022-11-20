@@ -2,25 +2,84 @@
     <div style="max-width: 400px; margin: auto;">
         <h1>Create an Account</h1>
 
-        <div class="form-group">
-            <label for="firstName" class="col-form-label-lg">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Smith">
-        </div>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-group">
+                <label 
+                    for="firstName" 
+                    class="col-form-label-lg"
+                >
+                    First Name
+                </label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="firstName" 
+                    name="firstName"
+                    placeholder="Smitty" 
+                    [(ngModel)]="newUser.firstName"
+                    required
+                />
+            </div>
 
-        <div class="form-group">
-            <label for="lastName" class="col-form-label-lg">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Wigglesworth">
-        </div>
+            <div class="form-group">
+                <label for="lastName" class="col-form-label-lg">Last Name</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="lastName" 
+                    name="lastName"
+                    placeholder="Werbenjagermanjensen" 
+                    [(ngModel)]="newUser.lastName"
+                    required
+                />
+            </div>
 
-        <div class="form-group">
-            <label for="emailAddress" class="col-form-label-lg">Email Address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="w.smith@example.com">
-        </div>
+            <div class="form-group">
+                <label for="emailAddress" class="col-form-label-lg">Email Address</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="emailAddress" 
+                    name="email" 
+                    placeholder="w.smitty@spongebob.com" 
+                    [(ngModel)]="newUser.emailAddress" 
+                    required
+                />
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Login Credentials</legend>
+            <div class="form-group">
+                <label for="userId" class="col-form-label-lg">Username</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="userId" 
+                    name="userId" 
+                    placeholder="number_one" 
+                    [(ngModel)]="newUser.userId" 
+                    required
+                />
+            </div>
 
-        <div class="form-group">
-            <label for="password" class="col-form-label-lg">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="••••••••">
-        </div>
+            <div class="form-group">
+                <label for="password" class="col-form-label-lg">Password</label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password" 
+                    name="password" 
+                    placeholder="••••••••" 
+                    [(ngModel)]="newUser.password" 
+                    required
+                />
+            </div>
+        </fieldset>
 
+        <button class="btn btn-primary" type="submit" value="Submit" style="display: block; width: 180px; margin: auto; margin-top: 30px; margin-bottom: 80px;">
+            Create Account
+        </button>
     </div>
 </div>
