@@ -15,6 +15,7 @@ import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
 import { EditaccountComponent } from './editaccount/editaccount.component';
 import { FormsModule } from '@angular/forms';
 import { BlogcardComponent } from './blogcard/blogcard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
