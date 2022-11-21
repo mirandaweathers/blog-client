@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Post } from '../models/post';
+import { PostserviceService } from '../services/postservice.service';
 
 @Component({
   selector: 'app-createpost',
@@ -9,12 +11,13 @@ import { Post } from '../models/post';
 export class CreatepostComponent implements OnInit {
   newPost:Post;
 
-  constructor() {
+  constructor(private postSvc:PostserviceService, private titleSvc:Title) {
     this.newPost = new Post('','','');
+    this.titleSvc.setTitle('Create a Post');
   }
 
   CreatePost() {
-    console.log(this.newPost);
+    this.postSvc.CreatePost(this.newPost);
   }
 
   ngOnInit(): void {
