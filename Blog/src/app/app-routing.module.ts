@@ -8,6 +8,7 @@ import { EditpostComponent } from './editpost/editpost.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { NewuserComponent } from './newuser/newuser.component';
+import { AuthguardService } from './services/authguard.service';
 import { ViewpostsComponent } from './viewposts/viewposts.component';
 
 const routes: Routes = [
@@ -21,15 +22,18 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    component: EditaccountComponent
+    component: EditaccountComponent,
+    canActivate: [AuthguardService]
   },
   {
     path: 'new-post',
-    component: CreatepostComponent
+    component: CreatepostComponent,
+    canActivate: [AuthguardService]
   },
   {
     path: 'edit-post',
-    component: EditpostComponent
+    component: EditpostComponent,
+    canActivate: [AuthguardService]
   },
   {
     path: 'new-user',
@@ -37,7 +41,8 @@ const routes: Routes = [
   },
   {
     path: 'add-comment',
-    component: AddcommentComponent
+    component: AddcommentComponent,
+    canActivate: [AuthguardService]
   }
 ];
 
