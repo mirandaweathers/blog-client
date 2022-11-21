@@ -10,7 +10,7 @@
                 class="form-control" 
                 id="userId" 
                 name="userId" 
-                
+                [(ngModel)]="userId"
             />
         </div>
 
@@ -23,13 +23,16 @@
                 class="form-control" 
                 id="password" 
                 name="password" 
-                
-                
+                [(ngModel)]="password"
             />
         </div>
 
+        <div class="alert alert-danger" role="alert" style="margin-top: 10px;" *ngIf="error">
+            Oops! Wrong username and/or password.
+        </div>
+
         <div class="text-center" style="margin-top: 30px; margin-bottom: 80px;">
-            <button class="btn btn-primary" type="submit" value="Submit" style="margin-right: 10px;">
+            <button (click)="Login()" class="btn btn-primary" type="submit" value="Submit" style="margin-right: 10px;">
                 Log In
             </button>
         </div>
