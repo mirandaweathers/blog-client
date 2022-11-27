@@ -17,11 +17,26 @@ export class LoginComponent {
   }
 
   Login() {
-    let result = this.authsvc.Login(this.userId, this.password);
-    if(result) {
-      this.router.navigate(['/']);
-    } else {
-      this.error = true;
-    }
+    // wait for response then get token or handle error
+    this.authsvc.Login(this.userId, this.password).subscribe({
+      next: (data) => {
+        // use token from authservice to set current user
+        this.authsvc.SetCurrentUser(data);
+        console.log(data);
+      }, 
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('logged in');
+      }
+    });
+
+    // let result = this.authsvc.Login(this.userId, this.password);
+    // if(result) {
+    //   this.router.navigate(['/']);
+    // } else {
+    //   this.error = true;
+    // }
   }
 }
