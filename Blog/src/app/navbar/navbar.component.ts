@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { Token } from '../models/token';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  currentUser:User|undefined;
+  currentUser:Token|undefined;
 
   constructor(private authsvc:AuthService, private route:Router) {
   }

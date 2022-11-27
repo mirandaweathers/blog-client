@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { Token } from '../models/token';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { User } from '../models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,27 +12,38 @@ export class AuthService {
   // @Output decorator = event that outputs loggedIn
   @Output() loggedIn = new EventEmitter<boolean>();
 
-  allUsers:User[] = [{
-    userId:'mw',
-    firstName:'Miranda',
-    lastName:'Weathers',
-    emailAddress:'mirandaweathers@gmail.com',
-    password:'pw'
-  }];
+  // allUsers:User[] = [{
+  //   userId:'mw',
+  //   firstName:'Miranda',
+  //   lastName:'Weathers',
+  //   emailAddress:'mirandaweathers@gmail.com',
+  //   password:'pw'
+  // }];
 
-  currentUser:User|undefined;
+  currentUser:Token|undefined;
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { 
+    // check for saved login token, log in if found
+    let yesToken = localStorage.getItem('token');
+    if(yesToken) {
+      this.currentUser = JSON.parse(yesToken);
+    }
+  }
 
   Login(userId:string,password:string) {
-    let user = this.allUsers.find(u => u.userId == userId && u.password == password);
-    if(user) {
-      this.currentUser = user; // if user found, set current user
-      this.loggedIn.emit(true); // emit 'true' event for navbar links to update
-      return user.firstName + user.lastName;
-    } else {
-      return false;
-    }
+    // when token retrieved, return it back to Login component (where this method was called)
+    return this.httpClient.get<Token>(`${environment.serverEndpoint}/Users/${userId}/${password}`);
+  }
+
+  SetCurrentUser(token:Token) {
+    // set current user with generated token from Login
+    this.currentUser = token;
+
+    // save token in local storage
+    localStorage.setItem('token', JSON.stringify(token));
+
+    // notify navbar & routes of logged in user
+    this.loggedIn.emit(true);
   }
 
   GetCurrentUser() {
@@ -37,7 +51,9 @@ export class AuthService {
   }
 
   LogOut() {
+    // reset current user and locally stored token
     this.currentUser = undefined;
+    localStorage.setItem('token', '');
     this.loggedIn.emit(false);
   }
 }
