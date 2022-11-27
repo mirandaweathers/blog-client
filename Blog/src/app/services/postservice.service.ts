@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Post } from '../models/post';
 
 @Injectable({
@@ -7,7 +9,7 @@ import { Post } from '../models/post';
 export class PostserviceService {
   allPosts:Post[];
   
-  constructor() { 
+  constructor(private httpClient:HttpClient) { 
     this.allPosts = [];
 
     this.allPosts.push(new Post(
@@ -34,6 +36,24 @@ export class PostserviceService {
   }
 
   CreatePost(post:Post) {
-    this.allPosts.push(post);
+    let token = localStorage.getItem('token');
+    if(token) {
+      // this.allPosts.push(post);
+      return this.httpClient.post(
+        `${environment.serverEndpoint}/Posts/`,
+        {
+          "title": post.title,
+          "content": post.content,
+          "headerImage": post.headerImage
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
+    } else {
+      return false;
+    }
   }
 }
