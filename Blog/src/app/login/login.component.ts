@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -16,21 +17,35 @@ export class LoginComponent {
     
   }
 
+  loginFormGroup = new FormGroup ({
+    formUserId: new FormControl('', [Validators.required]),
+    formPassword: new FormControl('', [Validators.required])
+  })
+
+  ClearForm() {
+    this.loginFormGroup.reset();
+  }
+
   Login() {
+    this.userId = this.loginFormGroup.controls.formUserId.value!;
+    this.password = this.loginFormGroup.controls.formPassword.value!;
     // wait for response then get token or handle error
     this.authsvc.Login(this.userId, this.password).subscribe({
-      next: (data) => {
+      next: (token) => {
         // use token from authservice to set current user
-        this.authsvc.SetCurrentUser(data);
-        console.log(data);
+        this.authsvc.SetCurrentUser(token);
+        // console.log(token);
+        // redirect to home
+        this.router.navigate(['/']);
       }, 
       error: (err) => {
         console.log(err);
       },
       complete: () => {
-        console.log('logged in');
+        // console.log('logged in');
       }
     });
+
 
     // let result = this.authsvc.Login(this.userId, this.password);
     // if(result) {

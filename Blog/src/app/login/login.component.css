@@ -1,0 +1,25 @@
+.example-full-width {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.customError {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color:mistyrose;
+    border: 1px solid pink;
+    border-radius: 4px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+}

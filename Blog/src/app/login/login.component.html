@@ -1,7 +1,36 @@
-<div class="container">
+<div class="main container">
     <div style="max-width: 400px; margin: auto;">
         <h1>Log In</h1>
-        <div class="form-group">
+
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="loginFormGroup">
+                    <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input name="username" type="text" matInput formControlName="formUserId" placeholder="number_one">
+                        <mat-error *ngIf="loginFormGroup.get('formUserId')!.hasError('required')">
+                            Username is required
+                          </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input name="password" type="password" matInput formControlName="formPassword" placeholder="••••••">
+                        <mat-error *ngIf="loginFormGroup.get('formPassword')!.hasError('required')">
+                          Password is required
+                        </mat-error>
+                    </mat-form-field>
+                    
+
+                    <div class="buttons">
+                        <button (click)="Login()" type="submit" value="Submit" mat-flat-button color="primary">Create Account</button> 
+                        <button (click)="ClearForm()" mat-stroked-button color="primary" type="reset">Reset</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+        <!-- <div class="form-group">
             <label for="userId" class="col-form-label-lg">
                 Username
             </label>
@@ -35,7 +64,7 @@
             <button (click)="Login()" class="btn btn-primary" type="submit" value="Submit" style="margin-right: 10px;">
                 Log In
             </button>
-        </div>
+        </div> -->
 
     </div>
 </div>
