@@ -1,7 +1,7 @@
 
 
 
-<div class="container">
+<div class="main container">
     <div style="max-width: 400px; margin: auto;">
         
         <h1>Create an Account</h1>
@@ -9,25 +9,25 @@
         <mat-card>
             <mat-card-content>
                 <form [formGroup]="newUserFormGroup" class="example-form">
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                       <mat-label>First Name</mat-label>
-                      <input type="text" matInput formControlName="formFirstName" placeholder="Smitty">
+                      <input name="firstName" type="text" matInput formControlName="formFirstName" placeholder="Smitty">
                       <mat-error *ngIf="newUserFormGroup.get('formFirstName')!.hasError('required')">
                         First Name is <strong>required</strong>
                       </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <mat-label>Last Name</mat-label>
-                        <input type="text" matInput formControlName="formLastName" placeholder="Werbenjagermanjensen">
+                        <input name="lastName" type="text" matInput formControlName="formLastName" placeholder="Werbenjagermanjensen">
                         <mat-error *ngIf="newUserFormGroup.get('formLastName')!.hasError('required')">
                           Last Name is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput formControlName="formEmail" placeholder="w.smitty@sbsp.com">
+                        <input name="email" type="email" matInput formControlName="formEmail" placeholder="w.smitty@sbsp.com">
                         <mat-error *ngIf="newUserFormGroup.get('formEmail')!.hasError('email') && !newUserFormGroup.get('formEmail')!.hasError('required')">
                           Please enter a valid email address
                         </mat-error>
@@ -36,26 +36,31 @@
                         </mat-error>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field>
                         <mat-label>Username</mat-label>
-                        <input type="text" matInput formControlName="formUserId" placeholder="number_one">
-                        <mat-hint>Username can't be changed!</mat-hint>
+                        <input name="userId" type="text" matInput formControlName="formUserId" placeholder="number_one" (focus)="focusState = true" (focusout)="focusState = false">
+                        <mat-hint *ngIf="focusState">Username can't be changed!</mat-hint>
                         <mat-error *ngIf="newUserFormGroup.get('formUserId')!.hasError('required')">
                           Username is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
-
-                    <mat-form-field class="example-full-width">
+                    
+                    <mat-form-field>
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput formControlName="formPassword" placeholder="And don't you forget it!">
+                        <input name="password" type="password" matInput formControlName="formPassword" placeholder="And don't you forget it!">
                         <mat-error *ngIf="newUserFormGroup.get('formPassword')!.hasError('required')">
                           Password is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
+
+                    <mat-error class="customError" *ngIf="serverErrMsg">{{serverErrMsg}}</mat-error>
                     
-                    <button (click)="CreateUser()" mat-flat-button color="primary">Create Account</button> 
-                    <button (click)="ClearForm()" mat-stroked-button color="primary" type="reset">Reset</button>
-                  </form>
+                    <div class="buttons">
+                        <button (click)="CreateUser()" type="submit" value="Submit" mat-flat-button color="primary">Create Account</button> 
+                        <button (click)="ClearForm()" mat-stroked-button color="primary" type="reset">Reset</button>
+                    </div>
+                    
+                </form>
             </mat-card-content>
         </mat-card>
 
