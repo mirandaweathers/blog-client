@@ -31,7 +31,7 @@ const routes: Routes = [
     canActivate: [AuthguardService]
   },
   {
-    path: 'edit-post',
+    path: 'edit-post/:id',
     component: EditpostComponent,
     canActivate: [AuthguardService]
   },
