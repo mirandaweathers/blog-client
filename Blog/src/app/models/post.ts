@@ -1,5 +1,4 @@
 export class Post {
-    static id:number = 0;
     postId:number;
     createdDate:Date;
     title:string;
@@ -9,11 +8,11 @@ export class Post {
     lastUpdated:Date;
 
     constructor(title:string, content:string, headerImage:string='') {
-        this.postId = Post.id++;
+        this.postId = 0;
         this.createdDate = new Date();
         this.title = title;
         this.content = content;
-        this.userId = 'sampleUser';
+        this.userId = '';
         this.headerImage = headerImage;
         this.lastUpdated = this.createdDate;
     }
