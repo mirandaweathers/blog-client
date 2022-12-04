@@ -3,6 +3,7 @@ import { Token } from '../models/token';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
 
   currentUser:Token|undefined;
 
-  constructor(private httpClient:HttpClient) { 
+  constructor(private httpClient:HttpClient, private router:Router) { 
     // check for saved login token, log in if found
     let yesToken = localStorage.getItem('token');
     if(yesToken) {
@@ -55,5 +56,6 @@ export class AuthService {
     this.currentUser = undefined;
     localStorage.setItem('token', '');
     this.loggedIn.emit(false);
+    this.router.navigate(['/login']);
   }
 }
