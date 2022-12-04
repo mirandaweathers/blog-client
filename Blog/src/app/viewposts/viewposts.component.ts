@@ -8,14 +8,22 @@ import { PostserviceService } from '../services/postservice.service';
   styleUrls: ['./viewposts.component.css']
 })
 export class ViewpostsComponent implements OnInit {
-  allPosts:Post[];
+  allPosts:Post[] = [];
 
   constructor(private postSvc:PostserviceService) {
-    this.allPosts = this.postSvc.GetPosts();
+    // this.allPosts = this.postSvc.GetPosts();
   }
 
   ngOnInit(): void {
-    this.allPosts = this.postSvc.GetPosts();
+    this.postSvc.GetPosts().subscribe({
+      next: (posts) => {
+        this.allPosts = JSON.parse(JSON.stringify(posts));
+        // console.log(this.allPosts);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 
