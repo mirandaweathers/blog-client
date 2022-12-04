@@ -1,8 +1,37 @@
-<div class="card" style="width: 18rem; margin-top: 10px; margin-bottom: 10px;">
+<!-- <div class="card" style="width: 18rem; margin-top: 10px; margin-bottom: 10px;">
     <img [src]="CurrentPost?.headerImage" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{CurrentPost?.title}}</h5>
       <p class="card-text">{{CurrentPost?.content}}</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
+</div> -->
+
+<div class="card mb-3" style="width:600px; margin:auto; text-align: left;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="CurrentPost?.headerImage" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title">{{CurrentPost?.title}}</h1>
+        <span class="author-edit">
+          <small class="text-muted">Posted by {{CurrentPost?.userId}}</small>
+          </span>
+        <p class="card-text">{{CurrentPost?.content}}</p>
+        <p class="card-text">
+          <small class="text-muted">Created {{postCreated}}</small>
+          
+        </p>
+        <span *ngIf="userMatch" class="delete-btn">
+          <button [routerLink]="['/edit-post/', CurrentPost?.postId]" mat-button color="primary">
+            Edit
+          </button>
+          <button mat-button color="warn" (click)="yesDelete = true"><small>Delete</small></button>
+        
+        </span>
+        <mat-error *ngIf="yesDelete" class="customError" style="display:block;"><small>Are you sure? <button mat-stroked-button color="warning" (click)="DeletePost()"><small>Yes, Delete</small></button></small></mat-error>
+      </div>
+    </div>
+  </div>
 </div>
