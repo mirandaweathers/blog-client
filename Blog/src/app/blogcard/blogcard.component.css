@@ -1,0 +1,17 @@
+.card-title {
+    margin-bottom: 0px;
+}
+
+.author-edit {
+    display: block;
+    margin-bottom: 10px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.delete-btn {
+    float: right;
+    padding-bottom: 10px;
+}
