@@ -11,7 +11,10 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   userId = '';
   password = '';
-  error = false;
+
+  // server-side error flag
+  serverError:boolean = false;
+  serverErrMsg:string = '';
 
   constructor(private authsvc:AuthService, private router:Router) {
     
@@ -39,7 +42,16 @@ export class LoginComponent {
         this.router.navigate(['/']);
       }, 
       error: (err) => {
-        console.log(err);
+        // get server error message to display to user
+        this.serverError = true;
+                    
+        switch(err.error.status) {
+          case '401':
+            this.serverErrMsg = 'Please enter valid login credentials.';
+            break;
+          default:
+            this.serverErrMsg = 'There was a problem logging in. Please try again!';
+        }
       },
       complete: () => {
         // console.log('logged in');

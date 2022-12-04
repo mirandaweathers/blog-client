@@ -21,9 +21,10 @@
                         </mat-error>
                     </mat-form-field>
                     
+                    <mat-error class="customError" *ngIf="serverErrMsg">{{serverErrMsg}}</mat-error>
 
                     <div class="buttons">
-                        <button (click)="Login()" type="submit" value="Submit" mat-flat-button color="primary">Create Account</button> 
+                        <button (click)="Login()" type="submit" value="Submit" mat-flat-button color="primary">Log In</button> 
                         <button (click)="ClearForm()" mat-stroked-button color="primary" type="reset">Reset</button>
                     </div>
                 </form>
